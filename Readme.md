@@ -10,7 +10,8 @@ A community issue reporting web application where users can report issues with i
 - Leaflet (for maps)
 
 ## 🚀 Run Locally
-```bash
-npm install
-npm start
+```bash(Download all the given Dependencies)
+npm install express mongoose ejs express-session
+npm install method-override multer
+
 
