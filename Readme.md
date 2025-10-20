@@ -1,19 +1,16 @@
-crowdcare/
-│
-├── index.js
-├── package.json
-├── .env
-│
-├── models/
-│   └── issue.js
-│
-├── views/
-│   ├── home.ejs
-│   ├── new.ejs
-│   ├── show.ejs
-│   └── partials/
-│       └── navbar.ejs
-│
-├── public/
-│   ├── style.css
-│   └── uploads/   ← where images get saved
+# CrowdCare 🧭
+A community issue reporting web application where users can report issues with images, upvote them, and view all reports on a map.
+
+## 🛠️ Built With
+- Node.js
+- Express
+- MongoDB
+- EJS
+- Multer
+- Leaflet (for maps)
+
+## 🚀 Run Locally
+```bash
+npm install
+npm start
+
