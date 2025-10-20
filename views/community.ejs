@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Issues</title>
+  <link rel="stylesheet" href="/comm.css">
+ 
+</head>
+<body style=" background: linear-gradient(135deg, #494052 0%, #20acf2 100%);">
+
+  <h1>🌍 Community Listings</h1>
+ <a href="/new" class="corner-btn"> Report an Issue</a>
+
+
+  <% if (issues.length === 0) { %>
+    <p style="text-align:center;">No issues have been reported yet.</p>
+  <% } else { %>
+    <div class="issues-container">
+      <% issues.forEach(issue => { %>
+        <div class="issue-card">
+          <% if (issue.image) { %>
+            <img src="<%= issue.image %>" alt="Issue Image">
+          <% } %>
+          <h3><%= issue.title %></h3>
+          <p><%= issue.description.substring(0, 100) %>...</p>
+          <p><strong>👍 Upvotes:</strong> <%= issue.upvotes %></p>
+          <a href="/issues/<%= issue._id %>">View Details</a>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</body>
+</html>

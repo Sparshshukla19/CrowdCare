@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report an Issue</title>
+  <link rel="stylesheet" href="/new.css">
+  
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="form-container">
+    <h1>📝 Report an Issue</h1>
+
+    <form action="/issues" method="POST" enctype="multipart/form-data">
+      <input type="text" name="title" placeholder="Enter Issue Title" required>
+      <textarea name="description" placeholder="Describe the issue..." required></textarea>
+      <input type="file" name="image" accept="image/*" required>
+      <label>Select Location:</label>
+  <div id="map" style="height: 300px; margin-top: 10px;"></div>
+  <input type="hidden" name="lat" id="lat">
+  <input type="hidden" name="lng" id="lng">
+  
+  <button type="submit">Submit Report</button>
+
+    </form>
+    <a href="/">← Back to Home</a>
+    <script src="/loc.js"></script>
+  </div>
+</body>
+</html>
