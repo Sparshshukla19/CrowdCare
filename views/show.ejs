@@ -22,7 +22,7 @@
     <% } %>
 
     <p><strong>Description:</strong> <%= issue.description %></p>
-    <p><strong>👍 Upvotes:</strong> <%= issue.upvotes %></p>
+    <p><strong> Upvotes:</strong> <%= issue.upvotes %></p>
 
     <form action="/issues/<%= issue._id %>/upvote" method="POST">
       <button type="submit">Upvote</button>
@@ -34,7 +34,7 @@
   </div>
 
   <script>
-    // ✅ Safe JSON Injection (prevents undefined errors)
+    //  Safe JSON Injection (prevents undefined errors)
     const issue =  JSON.stringify(issue) !== 'undefined' ? JSON.parse('<%- JSON.stringify(issue) %>') : null;
 
     const lat = issue?.location?.lat || 12.9716;  // Default: Bangalore
