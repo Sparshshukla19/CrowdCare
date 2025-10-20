@@ -23,7 +23,7 @@
           <% } %>
           <h3><%= issue.title %></h3>
           <p><%= issue.description.substring(0, 100) %>...</p>
-          <p><strong>👍 Upvotes:</strong> <%= issue.upvotes %></p>
+          <p><strong> Upvotes:</strong> <%= issue.upvotes %></p>
           <a href="/issues/<%= issue._id %>">View Details</a>
         </div>
       <% }) %>
