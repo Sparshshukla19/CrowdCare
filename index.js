@@ -10,8 +10,8 @@ const app = express();
 
 // --- MongoDB Connection ---
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch(err => console.log("❌ MongoDB Connection Error:", err));
+  .then(() => console.log(" MongoDB Connected"))
+  .catch(err => console.log(" MongoDB Connection Error:", err));
 
 // --- Middleware ---
 app.set('view engine', 'ejs');
@@ -33,23 +33,23 @@ const upload = multer({ storage });
 
 // --- ROUTES ---
 
-// ✅ Home Page
+//  Home Page
 app.get('/', (req, res) => {
   res.render('home');
 });
 
-// ✅ Community Listings
+//  Community Listings
 app.get('/issues', async (req, res) => {
   const issues = await Issue.find().sort({ createdAt: -1 });
   res.render('community', { issues });
 });
 
-// ✅ Report Form
+//  Report Form
 app.get('/new', (req, res) => {
   res.render('new');
 });
 
-// ✅ Create New Issue
+//  Create New Issue
 app.post('/issues', upload.single('image'), async (req, res) => {
   const { title, description,lat, lng } = req.body;
   const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
@@ -68,13 +68,13 @@ app.post('/issues', upload.single('image'), async (req, res) => {
 app.get('/issues/new', (req, res) => {
   res.render('new');
 });
-// ✅ Show Single Issue
+//  Show Single Issue
 app.get('/issues/:id', async (req, res) => {
   const issue = await Issue.findById(req.params.id);
   res.render('show', { issue });
 });
 
-// ✅ Upvote
+//  Upvote
 app.post('/issues/:id/upvote', async (req, res) => {
   const issue = await Issue.findById(req.params.id);
   issue.upvotes += 1;
@@ -84,4 +84,4 @@ app.post('/issues/:id/upvote', async (req, res) => {
 
 // --- Server ---
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
